@@ -5,11 +5,13 @@ import { useState, useEffect } from 'react';
 import axios from "../utils/axios";
 import Header from './partials/Header';
 import HorizontalCards from './partials/HorizontalCards';
+import Dropdown from './partials/Dropdown';
 
 const Home = () => {
     document.title = "MovieFlix | Homepage";
     const [wallpaper, setWallpaper] = useState(null);
     const [trending, setTrending] = useState(null)
+    const [category, setCategory] = useState("all");
 
     const GetHeaderWallpaper = async () => {
         try {
@@ -30,7 +32,7 @@ const Home = () => {
 
     const GetTrending = async () => {
         try {
-            const { data } = await axios.get(`/trending/all/day`);
+            const { data } = await axios.get(`/trending/${category}/day`);
             
             // Check if data.results exists and is not empty
             if (data && data.results && data.results.length > 0) {
@@ -46,13 +48,11 @@ const Home = () => {
     };
 
     useEffect(() => {
-        if (!wallpaper) {
-            GetHeaderWallpaper(); // Call the function on component mount
-        }
-        if(!trending){
-            GetTrending();
-        }
-    }, [wallpaper]);
+       GetTrending();
+
+       !wallpaper && GetHeaderWallpaper();
+     
+        }, [category]);
 
     console.log(trending)
 
@@ -62,6 +62,16 @@ const Home = () => {
             <div className="w-[80%] h-full overflow-auto overflox-x-hidden">
                 <Topnav />
                 <Header data={wallpaper}/>
+
+                <div className="flex justify-between p-5">
+                <h1 className="text-3xl font-semibold text-zinc-400">
+                 Trending
+                 </h1>
+
+                <Dropdown title="Filter" options={["tv", "movie", "all"]} func={(e) => setCategory(e.target.value)}/>
+
+
+        </div>
                 <HorizontalCards data={trending}/>
             </div>
         </>

@@ -4,9 +4,6 @@ const Header = ({ data }) => {
     if (!data) {
         return <div>Loading...</div>; // Handle case where data is not yet loaded
     }
-
-    console.log(data); // Debugging to check if data is coming properly
-
     return (
         <div
             style={{

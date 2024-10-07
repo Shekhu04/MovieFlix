@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Loading from './Loading';
 import HorizontalCards from './partials/HorizontalCards';
+import Trailer from './partials/Trailer';
+import { Outlet } from 'react-router-dom';
 
 
 const MovieDetails = () => {
@@ -29,7 +31,7 @@ const MovieDetails = () => {
         backgroundRepeat: "no-repeat",
        
         }}
-        className="w-screen h-[140vh] px-[10%]"
+        className="relative w-screen h-[140vh] px-[10%]"
     >
         {/* Part 1 Navigation */}
         <nav className='h-[10vh] w-full text-zinc-200 flex items-center gap-10 text-xl'>
@@ -142,7 +144,7 @@ const MovieDetails = () => {
               }
         />
 
-
+        <Outlet/>
     </div>
   ) : <Loading/>
 };

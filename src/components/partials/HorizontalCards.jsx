@@ -8,13 +8,13 @@ const HorizontalCards = ({data}) => {
       <div className="w-[100%] flex overflow-y-hidden mb-5 p-5">
         {data.map((d,i) => (
             <Link to ={`/${d.media_type}/details/${d.id}`}
-            key={i} className="min-w-[15%] bg-zinc-900 mr-5 mb-5">
+            key={i} className="min-w-[15%] h-[35vh] bg-zinc-900 mr-5 mb-5">
 
-                <img className="w-full h-[45%] object-cover" src={`https://image.tmdb.org/t/p/original${d.backdrop_path || d.poster_path}`} 
+                <img className="w-full h-[55%] object-cover" src={`https://image.tmdb.org/t/p/original${d.backdrop_path || d.poster_path}`} 
 
                 alt=''/>
 
-                <div className="text-white p-3 h-[35%]"> 
+                <div className="text-white p-3 h-[45%] overflow-y-auto"> 
                     <h1 className=" text-xl font-semibold ">
                 {d.title || d.name || d.original_name || d.original_title}
                 </h1>

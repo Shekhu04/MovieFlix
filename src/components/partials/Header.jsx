@@ -25,7 +25,7 @@ const Header = ({ data }) => {
             {/* Movie Overview or Description */}
             <p className="w-[70%] mt-5 text-white">
                 {data.overview ? data.overview.slice(0, 200) : "No description available"}...
-                <Link className="text-blue-400" to={`/more-info/${data.id}`}>more</Link> {/* Link for more info */}
+                <Link to={`/${data.media_type}/details/${data.id}`} className="text-blue-400">more</Link> {/* Link for more info */}
             </p>
 
             {/* Release Date and Media Type */}

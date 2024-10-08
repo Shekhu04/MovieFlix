@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 
+
 const Trailer = () => {
     const navigate = useNavigate();
    const {pathname} = useLocation();
@@ -18,12 +19,14 @@ const Trailer = () => {
           className="absolute hover:text-[#6556cd] ri-close-fill text-3xl text-white right-[5%] top-[5%]"
         ></Link>
         <ReactPlayer
-             height={600}
-             width={1100}
-             url={`https://www.youtube.com/watch?v=${ytvideo.key}`}
-        />
+         controls
+         height={600}
+         width={1100}
+         url={ytvideo && ytvideo.key ? `https://www.youtube.com/watch?v=${ytvideo.key}` : null}
+         />
+
     </div>
-  )
+  ) ;
 }
 
 export default Trailer

@@ -35,7 +35,7 @@ const Header = ({ data }) => {
             </p>
 
             {/* Watch Trailer Button */}
-            <Link to={`/trailer/${data.id}`} className="mt-3 bg-[#6556cd] p-4 rounded text-white">
+            <Link to={`/${data.media_type}/details/${data.id}/trailer`} className="mt-3 bg-[#6556cd] p-4 rounded text-white">
                 Watch Trailer
             </Link>
         </div>

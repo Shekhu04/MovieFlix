@@ -55,7 +55,7 @@ const Home = () => {
      
         }, [category]);
 
-    console.log(trending)
+   
 
     return wallpaper && trending ?(
         <>  
